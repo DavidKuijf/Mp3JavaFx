@@ -15,7 +15,7 @@
                   <MenuItem mnemonicParsing="false" text="Open File" />
                   <MenuItem mnemonicParsing="false" text="Open Folder" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Preferences" />
+                  <MenuItem fx:id="Preferencesbtn" mnemonicParsing="false" onAction="#openPref" text="Preferences" />
                   <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
