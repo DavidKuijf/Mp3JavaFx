@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PreferencesController{">
    <children>
-      <AnchorPane layoutX="15.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="278.0" prefWidth="570.0">
+      <AnchorPane layoutX="15.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="485.0">
          <children>
-            <Button fx:id="Cancelbtn" layoutX="511.0" layoutY="335.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
-            <Button fx:id="Applybtn" layoutX="429.0" layoutY="335.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Apply" />
+            <Button fx:id="Cancelbtn" layoutX="411.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
+            <Button fx:id="Applybtn" layoutX="326.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Apply" />
             <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="90.0" text="Library" />
             <TextField layoutY="23.0" prefHeight="25.0" prefWidth="438.0">
                <tooltip>
