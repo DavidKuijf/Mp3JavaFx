@@ -1,5 +1,8 @@
 package application;
 	
+import java.io.File;
+import java.nio.file.Paths;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +18,10 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		
+
+		//File testmp3File =  new File("C:\\Users\\davic\\Music\\Sabaton.mp3"); //for testing if the player works
+		//Mp3Player.PlayingAnMp3(testmp3File);
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Libwindow.fxml")); // Loads Scene Builder fxml file.
 			
