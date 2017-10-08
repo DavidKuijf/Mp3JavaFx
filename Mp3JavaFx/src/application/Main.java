@@ -22,6 +22,7 @@ public class Main extends Application {
 
 		//File testmp3File =  new File("C:\\Users\\davic\\Music\\Sabaton.mp3"); //for testing if the player works
 		//Mp3Player.PlayingAnMp3(testmp3File);
+		///PreferencesController.getLibraryDirectory(); //againt testing if im not going insane
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Libwindow.fxml")); // Loads Scene Builder fxml file.
 			

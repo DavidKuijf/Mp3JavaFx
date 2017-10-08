@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PreferencesController{">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PreferencesController">
    <children>
       <AnchorPane layoutX="15.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="485.0">
          <children>
@@ -19,7 +19,7 @@
                   <Tooltip text="Enter the path to your music folder" />
                </tooltip>
             </TextField>
-            <Button fx:id="Browsebtn" layoutX="429.0" layoutY="23.0" mnemonicParsing="false" text="Browse" />
+            <Button fx:id="Browsebtn" layoutX="429.0" layoutY="23.0" mnemonicParsing="false" onAction="getLibraryDirectory" text="Browse" />
          </children>
       </AnchorPane>
    </children>
