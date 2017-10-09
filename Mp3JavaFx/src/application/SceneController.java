@@ -22,14 +22,14 @@ public class SceneController implements Initializable {
 	@FXML
 	private ListView<String> mp3List; // Creates a java variable from fxml ListView component (see fx:id in scene builder).
 	private ObservableList<String> items = FXCollections.observableArrayList(); // Creates an observable list as an array so we can add components to the list view.
-	
+	static Stage prefstage = new Stage();
 	
 	@FXML 
 		private void openPref() {
 		System.out.println("It WORKS!");
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Preferencesframe.fxml")); // Loads Scene Builder fxml file.
-			Stage prefstage = new Stage();
+			//Stage prefstage = new Stage();
 			prefstage.setScene(new Scene(root, 570, 278));
 			//prefstage.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // Loads the css style sheet.
 			prefstage.show();

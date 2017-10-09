@@ -11,15 +11,15 @@
    <children>
       <AnchorPane layoutX="15.0" layoutY="22.0" minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="485.0">
          <children>
-            <Button fx:id="Cancelbtn" layoutX="411.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
+            <Button fx:id="Cancelbtn" layoutX="411.0" layoutY="221.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="73.0" text="Cancel" />
             <Button fx:id="Applybtn" layoutX="326.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Apply" />
             <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="90.0" text="Library" />
-            <TextField layoutY="23.0" prefHeight="25.0" prefWidth="438.0">
+            <TextField fx:id="libraryDirTxt" layoutY="23.0" prefHeight="25.0" prefWidth="438.0">
                <tooltip>
                   <Tooltip text="Enter the path to your music folder" />
                </tooltip>
             </TextField>
-            <Button fx:id="Browsebtn" layoutX="429.0" layoutY="23.0" mnemonicParsing="false" onAction="getLibraryDirectory" text="Browse" />
+            <Button fx:id="Browsebtn" layoutX="429.0" layoutY="23.0" mnemonicParsing="false" onAction="#getLibraryDirectory" text="Browse" />
          </children>
       </AnchorPane>
    </children>
