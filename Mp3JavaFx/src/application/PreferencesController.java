@@ -17,7 +17,7 @@ public class PreferencesController implements Initializable {
 	TextField libraryDirTxt = new TextField();							//init a Textfield
 	
 	@FXML 
-	void getLibraryDirectory(ActionEvent event) {
+	void getLibraryDirectory() {
 	DirectoryChooser directoryChooser = new DirectoryChooser();			//make a Directory chooser
 	File libraryFolder = directoryChooser.showDialog(null);				//Open a Directory chooser
 	String libFile = libraryFolder.getAbsolutePath(); 					//get the path of the passed File
@@ -26,12 +26,26 @@ public class PreferencesController implements Initializable {
 	}
 	
 	@FXML
-	void cancel(ActionEvent event) {
+	void cancel() {
 		SceneController.prefstage.close();								//close prefstage
 	}
 	@FXML
-	void apply(ActionEvent event) {
+	void apply() {
 		libraryFolderPassable = new File(libraryDirTxt.getText().replace("\\", "/"));	//set the textfield to a passable File
+		if(libraryFolderPassable != null) {
+			getMp3list(libraryFolderPassable);
+		}
+	}
+	@FXML
+	void getMp3list(File libraryFolder) {
+		File[] Testlist;
+		Testlist = libraryFolder.listFiles();
+		for (File x:Testlist){
+			if(x.getName().endsWith(".mp3")) {
+				System.out.println(x.getPath()+"\\" + x.getName());
+				SceneController.items.add(x.getName());
+			}
+		}
 		
 	}
 	
