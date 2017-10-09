@@ -31,7 +31,7 @@ public class Methods {
 		}
 	}
 	
-	static void makeTheLibDirTxt() {
+	static void makeTheLibDirTxt() {	
 	Path file = Paths.get("./lib-dir2.txt");
 		try {
 		    // Create the empty file with default permissions, etc.
