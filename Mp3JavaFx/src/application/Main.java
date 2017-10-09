@@ -1,8 +1,5 @@
 package application;
 	
-import java.io.File;
-import java.nio.file.Paths;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,19 +15,15 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		
-
-		//File testmp3File =  new File("C:\\Users\\davic\\Music\\Sabaton.mp3"); //for testing if the player works
-		//Mp3Player.PlayingAnMp3(testmp3File);
-		///PreferencesController.getLibraryDirectory(); //againt testing if im not going insane
+		Methods.makeTheLibDirTxt();
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Libwindow.fxml")); // Loads Scene Builder fxml file.
-			
-			Scene mainScene = new Scene(root,1280,800); // Creates the scene in the stage.
-			primaryStage.setTitle("MP3 Library"); // Speaks for itself.
-			mainScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // Loads the css style sheet.
-			primaryStage.setScene(mainScene); // Sets the scene of the stage.
-			primaryStage.show(); // Draws the stage on screen.
+			Parent root = FXMLLoader.load(getClass().getResource("Libwindow.fxml")); 						// Loads Scene Builder fxml file.
+			Methods.getMp3list(Variables.libraryFolderPassable);
+			Scene mainScene = new Scene(root,1280,800); 													// Creates the scene in the stage.
+			primaryStage.setTitle("MP3 Library");															// Speaks for itself.
+			mainScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		// Loads the css style sheet.
+			primaryStage.setScene(mainScene); 																// Sets the scene of the stage.
+			primaryStage.show(); 																			// Draws the stage on screen.
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -38,6 +31,5 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		//changed some shite
 	}
 }
