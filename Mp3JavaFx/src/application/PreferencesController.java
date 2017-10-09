@@ -14,26 +14,24 @@ public class PreferencesController implements Initializable {
 	
 	File libraryFolderPassable = null;
 	@FXML
-	TextField libraryDirTxt = new TextField();
+	TextField libraryDirTxt = new TextField();							//init a Textfield
 	
 	@FXML 
-	File getLibraryDirectory(ActionEvent event) {
-	System.out.println(" It works");
-	DirectoryChooser directoryChooser = new DirectoryChooser();
-	File libraryFolder = directoryChooser.showDialog(null);
+	void getLibraryDirectory(ActionEvent event) {
+	DirectoryChooser directoryChooser = new DirectoryChooser();			//make a Directory chooser
+	File libraryFolder = directoryChooser.showDialog(null);				//Open a Directory chooser
 	String libFile = libraryFolder.getAbsolutePath(); 					//get the path of the passed File
-	libFile = libFile.replace("\\", "/");							//Replace all \\ with /
-	libraryDirTxt.setText(libFile);
-	return libraryFolder;
+	libFile = libFile.replace("\\", "/");								//Replace all \\ with /
+	libraryDirTxt.setText(libFile);										//set the field to the selected file
 	}
 	
 	@FXML
 	void cancel(ActionEvent event) {
-		SceneController.prefstage.close();
+		SceneController.prefstage.close();								//close prefstage
 	}
 	@FXML
 	void apply(ActionEvent event) {
-		libraryFolderPassable = new File(libraryDirTxt.getText().replace("\\", "/"));
+		libraryFolderPassable = new File(libraryDirTxt.getText().replace("\\", "/"));	//set the textfield to a passable File
 		
 	}
 	
