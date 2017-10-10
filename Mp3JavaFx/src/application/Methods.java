@@ -34,7 +34,7 @@ public class Methods {
 	}
 	
 	static void makeTheLibDirTxt() {	
-	Path file = Paths.get("/lib-dir.txt");
+		Path file = Paths.get("lib-dir.txt");
 		try {
 		    // Create the empty file with default permissions, etc.
 		    Files.createFile(file);
@@ -45,17 +45,19 @@ public class Methods {
 		    // Some other sort of failure, such as permissions.
 		    System.err.format("createFile error: %s%n", x);
 		}
+		writeToTxtFile("it works, my time machine works!");
 	}
 	
-	static void writeToTxtFile(Path path,String txt ) {
+	static void writeToTxtFile(String txt ) {
 		FileWriter fWriter;
 		try {
 			fWriter = new FileWriter("lib-dir.txt");
 			BufferedWriter bWriter = new BufferedWriter(fWriter);
 			bWriter.write(txt);
+			bWriter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}x`
+		}
 	}
 }
