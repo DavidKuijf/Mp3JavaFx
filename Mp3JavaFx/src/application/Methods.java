@@ -33,7 +33,7 @@ public class Methods {
 		}
 	}
 	
-	static void makeTheLibDirTxt() {	
+	static void makeTheLibDirTxt() {									//This was basically ripped word for word from https://docs.oracle.com/javase/tutorial/essential/io/file.html
 		Path file = Paths.get("lib-dir.txt");
 		try {
 		    // Create the empty file with default permissions, etc.
