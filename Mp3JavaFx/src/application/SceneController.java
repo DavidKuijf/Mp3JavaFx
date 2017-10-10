@@ -26,7 +26,7 @@ public class SceneController implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("Preferencesframe.fxml"));
 			prefstage.setScene(new Scene(root, 570, 278));
 			prefstage.showAndWait();
-			mp3List.setVisible(false); //temp refresh
+			mp3List.setVisible(false); //temp refresh patch ASAP
 			mp3List.setVisible(true);  //temp refresh patch ASAP
 		} catch(Exception e) {///
 			e.printStackTrace();

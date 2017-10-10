@@ -25,6 +25,7 @@ public class Methods {
 	static void getMp3list(File libraryFolder) {
 		File[] Testlist;
 		Testlist = libraryFolder.listFiles();
+		SceneController.items.clear();
 		for (File x:Testlist){
 			if(x.getName().endsWith(".mp3")) {
 				System.out.println(x.getPath()+"\\" + x.getName());
@@ -45,7 +46,7 @@ public class Methods {
 		    // Some other sort of failure, such as permissions.
 		    System.err.format("createFile error: %s%n", x);
 		}
-		writeToTxtFile("it works, my time machine works!");
+		Methods.writeToTxtFile(Variables.libraryFolderPassable.toString());
 	}
 	
 	static void writeToTxtFile(String txt ) {
@@ -60,4 +61,6 @@ public class Methods {
 			e.printStackTrace();
 		}
 	}
+	
+	
 }
