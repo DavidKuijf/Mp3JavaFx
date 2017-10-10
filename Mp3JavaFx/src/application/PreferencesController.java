@@ -13,9 +13,9 @@ public class PreferencesController implements Initializable {
 	
 	
 	@FXML
-	TextField libraryDirTxt = new TextField();							//init a Textfield
+	TextField libraryDirTxtfx = Variables.libraryDirTxt;							//init a Textfield
 	
-	@FXML 
+	/*@FXML 
 	void getLibraryDirectory() {
 	DirectoryChooser directoryChooser = new DirectoryChooser();			//make a Directory chooser
 	File libraryFolder = directoryChooser.showDialog(null);				//Open a Directory chooser
@@ -23,6 +23,11 @@ public class PreferencesController implements Initializable {
 	libFile = libFile.replace("\\", "/");								//Replace all \\ with /
 	libraryDirTxt.setText(libFile);										//set the field to the selected file
 	
+	}*/
+	@FXML
+	void getLibraryDirectoryfx(){
+		Methods.getLibraryDirectory();
+		libraryDirTxtfx.setText("");
 	}
 	
 	
@@ -32,7 +37,7 @@ public class PreferencesController implements Initializable {
 	}
 	@FXML
 	void apply() {
-		Variables.libraryFolderPassable = new File(libraryDirTxt.getText().replace("\\", "/"));	//set the textfield to a passable File
+		Variables.libraryFolderPassable = new File(libraryDirTxtfx.getText().replace("\\", "/"));	//set the textfield to a passable File
 		Methods.getMp3list(Variables.libraryFolderPassable);
 	}
 	

@@ -19,7 +19,7 @@
                   <Tooltip text="Enter the path to your music folder" />
                </tooltip>
             </TextField>
-            <Button fx:id="Browsebtn" layoutX="429.0" layoutY="23.0" mnemonicParsing="false" onAction="#getLibraryDirectory" text="Browse" />
+            <Button fx:id="Browsebtn" layoutX="429.0" layoutY="23.0" mnemonicParsing="false" onAction="#getLibraryDirectoryfx" text="Browse" />
          </children>
       </AnchorPane>
    </children>
