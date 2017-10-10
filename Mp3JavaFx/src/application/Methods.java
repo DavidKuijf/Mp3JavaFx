@@ -1,6 +1,8 @@
 package application;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
@@ -32,7 +34,7 @@ public class Methods {
 	}
 	
 	static void makeTheLibDirTxt() {	
-	Path file = Paths.get("./lib-dir2.txt");
+	Path file = Paths.get("/lib-dir.txt");
 		try {
 		    // Create the empty file with default permissions, etc.
 		    Files.createFile(file);
@@ -43,5 +45,17 @@ public class Methods {
 		    // Some other sort of failure, such as permissions.
 		    System.err.format("createFile error: %s%n", x);
 		}
+	}
+	
+	static void writeToTxtFile(Path path,String txt ) {
+		FileWriter fWriter;
+		try {
+			fWriter = new FileWriter("lib-dir.txt");
+			BufferedWriter bWriter = new BufferedWriter(fWriter);
+			bWriter.write(txt);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}x`
 	}
 }
