@@ -1,8 +1,11 @@
 package application;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -38,5 +41,16 @@ public class SceneController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) { // On stage init.
 		mp3List.setItems(items); // Sets the observable list of the list view.
 		// Add temporary components to observable list so they get drawn on the list view.
+		mp3List.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				for (File f : Variables.fileList) {
+					if (f.getName().equals(newValue)) {
+						Methods.getMetadata(f);
+					}
+				}
+				System.out.println("Selected item: " + newValue);
+			}
+		});
 	}
 }

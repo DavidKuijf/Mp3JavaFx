@@ -21,13 +21,12 @@ public class Methods {
 		MediaPlayer player = new MediaPlayer(mp3);						//Make the actual player instance
 		player.play();													//Start playing
 		
-		}
+	}
 	
 	static void getMp3list(File libraryFolder) {
-		File[] Testlist;
-		Testlist = libraryFolder.listFiles();
+		Variables.fileList = libraryFolder.listFiles();
 		SceneController.items.clear();
-		for (File x:Testlist){
+		for (File x:Variables.fileList){
 			if(x.getName().endsWith(".mp3")) {
 				System.out.println(x.getPath()+"\\" + x.getName());
 				SceneController.items.add(x.getName());
@@ -69,8 +68,16 @@ public class Methods {
 		libFile = libFile.replace("\\", "/");								//Replace all \\ with /
 		Variables.libraryDirTxt.setText(libFile);							//set the field to the selected file
 		return libFile;
+
 		
-		}
+	}
 	
+	static void getMetadata(File selectedMp3) {
+		String mp3Path = selectedMp3.getAbsolutePath();
+		mp3Path = mp3Path.replace("\\", "/");
+		Media mp3 = new Media(new File(mp3Path).toURI().toString());
+		MediaPlayer player = new MediaPlayer(mp3);
+		System.out.println(player.getMedia().getMetadata().get("title"));
+	}
 	
 }
