@@ -21,22 +21,13 @@ public class PreferencesController implements Initializable {
 	
 	@FXML
 	void enableApplyButton() {
-		Applybtn.setDisable(false);
+		Applybtn.setDisable(false);												//Disables the applybutton
 	}
 	
-	
-	/*@FXML 
-	void getLibraryDirectory() {
-	DirectoryChooser directoryChooser = new DirectoryChooser();			//make a Directory chooser
-	File libraryFolder = directoryChooser.showDialog(null);				//Open a Directory chooser
-	String libFile = libraryFolder.getAbsolutePath(); 					//get the path of the passed File
-	libFile = libFile.replace("\\", "/");								//Replace all \\ with /
-	libraryDirTxt.setText(libFile);										//set the field to the selected file
-	
-	}*/
+
 	@FXML
 	void getLibraryDirectoryfx(){
-		libraryDirTxtfx.setText(Methods.getLibraryDirectory());
+		libraryDirTxtfx.setText(Methods.getLibraryDirectory());					//Gets the path of the library directory in a string and sets the textbox to it
 		enableApplyButton();
 	}
 	
