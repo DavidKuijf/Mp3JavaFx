@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 
@@ -13,7 +14,16 @@ public class PreferencesController implements Initializable {
 	
 	
 	@FXML
-	TextField libraryDirTxtfx = Variables.libraryDirTxt;							//init a Textfield
+	TextField libraryDirTxtfx = new TextField("test");							//init a Textfield
+	
+	@FXML
+	Button Applybtn = new Button();
+	
+	@FXML
+	void enableApplyButton() {
+		Applybtn.setDisable(false);
+	}
+	
 	
 	/*@FXML 
 	void getLibraryDirectory() {
@@ -26,14 +36,14 @@ public class PreferencesController implements Initializable {
 	}*/
 	@FXML
 	void getLibraryDirectoryfx(){
-		Methods.getLibraryDirectory();
-		libraryDirTxtfx.setText("");
+		libraryDirTxtfx.setText(Methods.getLibraryDirectory());
+		enableApplyButton();
 	}
 	
 	
 	@FXML
 	void cancel() {
-		SceneController.prefstage.close();								//close prefstage
+		SceneController.prefstage.close();	//close prefstage
 	}
 	@FXML
 	void apply() {
@@ -44,7 +54,7 @@ public class PreferencesController implements Initializable {
 	
 	 @Override
 	    public void initialize(URL url, ResourceBundle rb) {
-	        // TODO
+		 	Applybtn.setDisable(true);
 	    }  
 	
 }

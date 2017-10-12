@@ -62,12 +62,13 @@ public class Methods {
 			e.printStackTrace();
 		}
 	}
-	static void getLibraryDirectory() {
+	static String getLibraryDirectory() {
 		DirectoryChooser directoryChooser = new DirectoryChooser();			//make a Directory chooser
 		File libraryFolder = directoryChooser.showDialog(null);				//Open a Directory chooser
 		String libFile = libraryFolder.getAbsolutePath(); 					//get the path of the passed File
 		libFile = libFile.replace("\\", "/");								//Replace all \\ with /
-		Variables.libraryDirTxt.setText(libFile);										//set the field to the selected file
+		Variables.libraryDirTxt.setText(libFile);							//set the field to the selected file
+		return libFile;
 		
 		}
 	
