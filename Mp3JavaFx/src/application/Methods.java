@@ -78,6 +78,22 @@ public class Methods {
 		Media mp3 = new Media(new File(mp3Path).toURI().toString());
 		MediaPlayer player = new MediaPlayer(mp3);
 		System.out.println(player.getMedia().getMetadata().get("title"));
+		player.setOnReady(new Runnable() {
+
+		        @Override
+		        public void run() {
+		            String artistName=(String) player.getMedia().getMetadata().get("artist");
+		            System.out.println(artistName);
+		            String titleName=(String) player.getMedia().getMetadata().get("title");
+		            System.out.println(titleName);
+		            String albumName=(String) player.getMedia().getMetadata().get("album");
+		            System.out.println(albumName);
+		            String year=(String) player.getMedia().getMetadata().get("year");
+		            System.out.println(year);
+		            
+		            
+		        }
+		    });
 	}
 	
 }
