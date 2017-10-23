@@ -13,15 +13,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class SceneController implements Initializable {
 	
 	@FXML
-	private ListView<String> mp3List; // Creates a java variable from fxml ListView component (see fx:id in scene builder).
-	static ObservableList<String> items = FXCollections.observableArrayList(); // Creates an observable list as an array so we can add components to the list view.
+	private ListView<String> mp3List; 											// Creates a java variable from fxml ListView component (see fx:id in scene builder).
+	static ObservableList<String> items = FXCollections.observableArrayList(); 	// Creates an observable list as an array so we can add components to the list view.
 	static Stage prefstage = new Stage();
+	//Label Artistlbl = new Label ("Artist:/t" + Variables.artistName);
+	@FXML
+	Label artistlbl;
+	@FXML
+	Label albumlbl;
+	@FXML
+	Label titlelbl;
+	@FXML
+	Label lengthlbl;
+	@FXML
+	ImageView imageview;
+	
+	
 	
 	@FXML 
 		private void openPref() {
@@ -50,6 +65,15 @@ public class SceneController implements Initializable {
 					}
 				}
 				System.out.println("Selected item: " + newValue);
+				if (Variables.albumImage != null) {
+				imageview.setImage(Variables.albumImage);
+				
+	
+				}	
+				artistlbl.setText("Artist: \t" + Variables.artistName);
+				albumlbl.setText("Album:\t" + Variables.albumName);
+				titlelbl.setText("Title: \t" + Variables.titleName);;
+				lengthlbl.setText((Variables.duration.toString()));
 			}
 		});
 	}

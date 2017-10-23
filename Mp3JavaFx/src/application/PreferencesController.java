@@ -8,14 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.DirectoryChooser;
 
 public class PreferencesController implements Initializable {
 	
 	
 	@FXML
 	TextField libraryDirTxtfx = new TextField("test");							//init a Textfield
-	
 	@FXML
 	Button Applybtn = new Button();
 	

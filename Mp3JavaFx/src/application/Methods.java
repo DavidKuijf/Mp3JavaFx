@@ -9,9 +9,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.DirectoryChooser;
+import javafx.util.Duration;
 
 public class Methods {
 	static void PlayingAnMp3(File mp3File) {
@@ -82,14 +84,21 @@ public class Methods {
 
 		        @Override
 		        public void run() {
-		            String artistName=(String) player.getMedia().getMetadata().get("artist");
-		            System.out.println(artistName);
-		            String titleName=(String) player.getMedia().getMetadata().get("title");
-		            System.out.println(titleName);
-		            String albumName=(String) player.getMedia().getMetadata().get("album");
-		            System.out.println(albumName);
-		            String year=(String) player.getMedia().getMetadata().get("year");
-		            System.out.println(year);
+		            Variables.artistName=(String) player.getMedia().getMetadata().get("artist");
+		            System.out.println(Variables.artistName);
+		            Variables.titleName=(String) player.getMedia().getMetadata().get("title");
+		            System.out.println(Variables.titleName);
+		            Variables.albumName=(String) player.getMedia().getMetadata().get("album");
+		            System.out.println(Variables.albumName);
+		            Variables.composerName=(String) player.getMedia().getMetadata().get("composer");
+		            System.out.println(Variables.composerName);
+		            Variables.duration=(Duration) player.getMedia().getMetadata().get("duration");
+		            System.out.println(Variables.duration);
+		            if (player.getMedia().getMetadata().get("year") != null){
+		            Variables.yearName=(int) player.getMedia().getMetadata().get("year");
+		            System.out.println(Variables.yearName);
+		            }
+		            Variables.albumImage =(Image) player.getMedia().getMetadata().get("image");
 		            
 		            
 		        }
