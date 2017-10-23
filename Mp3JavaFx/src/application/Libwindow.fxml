@@ -28,7 +28,7 @@
             <ListView fx:id="mp3List" prefHeight="200.0" prefWidth="200.0" />
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="680.0" prefWidth="417.0">
                <children>
-                  <SplitPane dividerPositions="0.685640362225097" layoutX="-1.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="775.0" prefWidth="760.0">
+                  <SplitPane fx:id="splitpane" dividerPositions="0.685640362225097" layoutX="-1.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="775.0" prefWidth="760.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="758.0">
                            <children>
@@ -41,12 +41,12 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="758.0">
                            <children>
-                              <Button layoutX="34.0" layoutY="31.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="&gt;" />
+                              <Button fx:id="playBtn" layoutX="34.0" layoutY="31.0" mnemonicParsing="false" onAction="#play" prefHeight="100.0" prefWidth="100.0" text="&gt;" />
                               <Slider layoutX="668.0" layoutY="88.0" orientation="VERTICAL" />
                               <Slider layoutX="34.0" layoutY="151.0" prefHeight="14.0" prefWidth="578.0" />
-                              <Button layoutX="134.0" layoutY="31.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="II" />
-                              <Button layoutX="234.0" layoutY="31.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="&gt;&gt;" />
-                              <Button layoutX="334.0" layoutY="31.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="&lt;&lt;" />
+                              <Button fx:id="pauseBtn" layoutX="134.0" layoutY="31.0" mnemonicParsing="false" onAction="#pause" prefHeight="100.0" prefWidth="100.0" text="II" />
+                              <Button fx:id="skipBtn" layoutX="234.0" layoutY="31.0" mnemonicParsing="false" onAction="#skip" prefHeight="100.0" prefWidth="100.0" text="&gt;&gt;" />
+                              <Button fx:id="rewindBtn" layoutX="334.0" layoutY="31.0" mnemonicParsing="false" onAction="#rewind" prefHeight="100.0" prefWidth="100.0" text="&lt;&lt;" />
                            </children>
                         </AnchorPane>
                     </items>

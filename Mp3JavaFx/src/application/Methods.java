@@ -84,6 +84,7 @@ public class Methods {
 
 		        @Override
 		        public void run() {
+		        	
 		            Variables.artistName=(String) player.getMedia().getMetadata().get("artist");
 		            System.out.println(Variables.artistName);
 		            Variables.titleName=(String) player.getMedia().getMetadata().get("title");

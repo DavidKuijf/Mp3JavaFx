@@ -21,4 +21,6 @@ public class Variables {
 	static Image albumImage;
 	static String composerName;
 	static Duration duration;
+	static File selectedmp3;
+	Mediaplayer player;
 }

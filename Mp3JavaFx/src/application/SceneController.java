@@ -13,8 +13,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -24,17 +26,26 @@ public class SceneController implements Initializable {
 	private ListView<String> mp3List; 											// Creates a java variable from fxml ListView component (see fx:id in scene builder).
 	static ObservableList<String> items = FXCollections.observableArrayList(); 	// Creates an observable list as an array so we can add components to the list view.
 	static Stage prefstage = new Stage();
-	//Label Artistlbl = new Label ("Artist:/t" + Variables.artistName);
-	@FXML
-	Label artistlbl;
-	@FXML
-	Label albumlbl;
-	@FXML
-	Label titlelbl;
-	@FXML
-	Label lengthlbl;
-	@FXML
-	ImageView imageview;
+	@FXML SplitPane splitpane;
+	@FXML Label artistlbl;
+	@FXML Label albumlbl;
+	@FXML Label titlelbl;
+	@FXML Label lengthlbl;
+	@FXML ImageView imageview;
+	@FXML Button playBtn;
+	@FXML Button pauseBtn;
+	@FXML Button skipBtn;
+	@FXML Button rewindBtn;
+	
+	@FXML void play() {Methods.PlayingAnMp3(Variables.selectedmp3);}
+	@FXML void pause() {Methods.player.pause();}
+	@FXML void rewind() {}
+	@FXML void skip() {}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -62,14 +73,19 @@ public class SceneController implements Initializable {
 				for (File f : Variables.fileList) {
 					if (f.getName().equals(newValue)) {
 						Methods.getMetadata(f);
+						
 					}
+					
 				}
 				System.out.println("Selected item: " + newValue);
+				String localstring = Variables.libraryFolderPassable.toString() +"\\" + newValue;
+				Variables.selectedmp3 = new File(localstring);
 				if (Variables.albumImage != null) {
 				imageview.setImage(Variables.albumImage);
 				
 	
-				}	
+				}
+				//set all metadata on screen
 				artistlbl.setText("Artist: \t" + Variables.artistName);
 				albumlbl.setText("Album:\t" + Variables.albumName);
 				titlelbl.setText("Title: \t" + Variables.titleName);;
