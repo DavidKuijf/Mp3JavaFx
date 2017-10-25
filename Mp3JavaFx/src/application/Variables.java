@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class Variables {
@@ -22,5 +23,7 @@ public class Variables {
 	static String composerName;
 	static Duration duration;
 	static File selectedmp3;
-	Mediaplayer player;
+	static MediaPlayer player;
+	static boolean playing = false;
+	
 }

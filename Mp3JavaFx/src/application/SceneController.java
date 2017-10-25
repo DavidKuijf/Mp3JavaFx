@@ -37,8 +37,7 @@ public class SceneController implements Initializable {
 	@FXML Button skipBtn;
 	@FXML Button rewindBtn;
 	
-	@FXML void play() {Methods.PlayingAnMp3(Variables.selectedmp3);}
-	@FXML void pause() {Methods.player.pause();}
+	@FXML void playpause() {Methods.playingAnMp3(Variables.selectedmp3);}
 	@FXML void rewind() {}
 	@FXML void skip() {}
 	
