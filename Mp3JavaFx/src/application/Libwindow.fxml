@@ -41,11 +41,24 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="758.0">
                            <children>
+<<<<<<< HEAD
                               <Button fx:id="playpauseBtn" layoutX="34.0" layoutY="31.0" mnemonicParsing="false" onAction="#playpause" prefHeight="100.0" prefWidth="100.0" text="II&gt;" />
                               <Slider layoutX="668.0" layoutY="88.0" orientation="VERTICAL" />
+=======
+                              <Button fx:id="playBtn" layoutX="34.0" layoutY="31.0" mnemonicParsing="false" onAction="#play" prefHeight="100.0" prefWidth="100.0" text="&gt;" />
+                              <Slider layoutX="482.0" layoutY="23.0" orientation="VERTICAL" prefHeight="117.0" prefWidth="14.0" />
+>>>>>>> branch 'master' of https://github.com/DavidKuijf/Mp3JavaFx.git
                               <Slider layoutX="34.0" layoutY="151.0" prefHeight="14.0" prefWidth="578.0" />
+<<<<<<< HEAD
                               <Button fx:id="skipBtn" layoutX="134.0" layoutY="31.0" mnemonicParsing="false" onAction="#skip" prefHeight="100.0" prefWidth="100.0" text="&gt;&gt;" />
                               <Button fx:id="rewindBtn" layoutX="234.0" layoutY="31.0" mnemonicParsing="false" onAction="#rewind" prefHeight="100.0" prefWidth="100.0" text="&lt;&lt;" />
+=======
+                              <Button fx:id="pauseBtn" layoutX="134.0" layoutY="31.0" mnemonicParsing="false" onAction="#pause" prefHeight="100.0" prefWidth="100.0" text="II" />
+                              <Button fx:id="skipBtn" layoutX="234.0" layoutY="31.0" mnemonicParsing="false" onAction="#skip" prefHeight="100.0" prefWidth="100.0" text="&gt;&gt;" />
+                              <Button fx:id="rewindBtn" layoutX="334.0" layoutY="31.0" mnemonicParsing="false" onAction="#rewind" prefHeight="100.0" prefWidth="100.0" text="&lt;&lt;" />
+                              <Label fx:id="timeSliderlbl" layoutX="635.0" layoutY="150.0" />
+                              <Label fx:id="contentDurationlbl" layoutX="612.0" layoutY="150.0" text="00.0" />
+>>>>>>> branch 'master' of https://github.com/DavidKuijf/Mp3JavaFx.git
                            </children>
                         </AnchorPane>
                     </items>

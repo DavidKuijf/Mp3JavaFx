@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.text.DecimalFormat;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,5 +26,5 @@ public class Variables {
 	static File selectedmp3;
 	static MediaPlayer player;
 	static boolean playing = false;
-	
+	final static DecimalFormat formatter = new DecimalFormat("");
 }

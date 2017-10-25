@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.DirectoryChooser;
-import javafx.util.Duration;
 
 public class Methods {
 
@@ -22,8 +21,8 @@ public class Methods {
 		String mp3Path = mp3File.getAbsolutePath(); 					//get the path of the passed File
 		mp3Path = mp3Path.replace("\\", "/");							//Replace all \\ with /
 		Media mp3 = new Media(new File(mp3Path).toURI().toString());	//Make it readable for the player
-		
 		Variables.player = new MediaPlayer(mp3);
+		
 		if (!Variables.playing) {
 		Variables.player.play();	//Start playing
 		Variables.playing = true;
@@ -89,32 +88,25 @@ public class Methods {
 		String mp3Path = selectedMp3.getAbsolutePath();
 		mp3Path = mp3Path.replace("\\", "/");
 		Media mp3 = new Media(new File(mp3Path).toURI().toString());
-		MediaPlayer player = new MediaPlayer(mp3);
-		System.out.println(player.getMedia().getMetadata().get("title"));
-		player.setOnReady(new Runnable() {
+		Variables.player = new MediaPlayer(mp3);
+		System.out.println(Variables.player.getMedia().getMetadata().get("title"));
+		Variables.player.setOnReady(() -> {
 
-		        @Override
-		        public void run() {
-		        	
-		            Variables.artistName=(String) player.getMedia().getMetadata().get("artist");
-		            System.out.println(Variables.artistName);
-		            Variables.titleName=(String) player.getMedia().getMetadata().get("title");
-		            System.out.println(Variables.titleName);
-		            Variables.albumName=(String) player.getMedia().getMetadata().get("album");
-		            System.out.println(Variables.albumName);
-		            Variables.composerName=(String) player.getMedia().getMetadata().get("composer");
-		            System.out.println(Variables.composerName);
-		            Variables.duration=(Duration) player.getMedia().getMetadata().get("duration");
-		            System.out.println(Variables.duration);
-		            if (player.getMedia().getMetadata().get("year") != null){
-		            Variables.yearName=(int) player.getMedia().getMetadata().get("year");
-		            System.out.println(Variables.yearName);
-		            }
-		            Variables.albumImage =(Image) player.getMedia().getMetadata().get("image");
-		            
-		            
-		        }
-		    });
+				Variables.artistName = (String) Variables.player.getMedia().getMetadata().get("artist");
+				System.out.println("Artist: " + Variables.artistName);
+				Variables.titleName = (String) Variables.player.getMedia().getMetadata().get("title");
+				System.out.println("Title: " + Variables.titleName);
+				Variables.albumName = (String) Variables.player.getMedia().getMetadata().get("album");
+				System.out.println("Album: " + Variables.albumName);
+				Variables.composerName = (String) Variables.player.getMedia().getMetadata().get("composer");
+				System.out.println("Composer: " + Variables.composerName);
+				Variables.duration = Variables.player.getMedia().getDuration();
+				System.out.println(Variables.duration);
+				if (Variables.player.getMedia().getMetadata().get("year") != null){
+					Variables.yearName = (int) Variables.player.getMedia().getMetadata().get("year");
+					System.out.println(Variables.yearName);
+				}
+				Variables.albumImage = (Image) Variables.player.getMedia().getMetadata().get("image");
+			   	});
 	}
-	
 }
