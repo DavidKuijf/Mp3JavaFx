@@ -27,10 +27,14 @@ public class SceneController implements Initializable {
 	static ObservableList<String> items = FXCollections.observableArrayList(); 	// Creates an observable list as an array so we can add components to the list view.
 	static Stage prefstage = new Stage();
 	@FXML SplitPane splitpane;
-	@FXML Label artistlbl;
-	@FXML Label albumlbl;
-	@FXML Label titlelbl;
-	@FXML Label lengthlbl;
+	@FXML
+	static Label artistlbl;
+	@FXML 
+	static Label albumlbl;
+	@FXML 
+	static Label titlelbl;
+	@FXML 
+	static Label lengthlbl;
 	@FXML ImageView imageview;
 	@FXML Button playBtn;
 	@FXML Button pauseBtn;
@@ -72,7 +76,6 @@ public class SceneController implements Initializable {
 				for (File f : Variables.fileList) {
 					if (f.getName().equals(newValue)) {
 						Methods.getMetadata(f);
-						
 					}
 					
 				}
