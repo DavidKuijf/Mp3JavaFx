@@ -31,6 +31,7 @@ public class SceneController implements Initializable {
 	@FXML Label albumlbl;
 	@FXML Label titlelbl;
 	@FXML Label lengthlbl;
+	@FXML Label timeSliderlbl;
 	@FXML ImageView imageview;
 	@FXML Button playBtn;
 	@FXML Button pauseBtn;
@@ -38,7 +39,7 @@ public class SceneController implements Initializable {
 	@FXML Button rewindBtn;
 	
 	@FXML void play() {Methods.PlayingAnMp3(Variables.selectedmp3);}
-	@FXML void pause() {Methods.player.pause();}
+	@FXML void pause() {Variables.player.pause();}
 	@FXML void rewind() {}
 	@FXML void skip() {}
 	
@@ -70,26 +71,26 @@ public class SceneController implements Initializable {
 		mp3List.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				System.out.println(newValue);
 				for (File f : Variables.fileList) {
 					if (f.getName().equals(newValue)) {
 						Methods.getMetadata(f);
-						
+						//set all metadata on screen
+						artistlbl.setText("Artist: \t" + Variables.artistName);
+						albumlbl.setText("Album:\t" + Variables.albumName);
+						titlelbl.setText("Title: \t" + Variables.titleName);
+						timeSliderlbl.setText(" / " + String.valueOf(Variables.formatter.format(Math.floor(Variables.duration.toSeconds()))));
 					}
 					
 				}
 				System.out.println("Selected item: " + newValue);
-				String localstring = Variables.libraryFolderPassable.toString() +"\\" + newValue;
+				String localstring = Variables.libraryFolderPassable.toString() + "\\" + newValue;
 				Variables.selectedmp3 = new File(localstring);
 				if (Variables.albumImage != null) {
 				imageview.setImage(Variables.albumImage);
 				
 	
 				}
-				//set all metadata on screen
-				artistlbl.setText("Artist: \t" + Variables.artistName);
-				albumlbl.setText("Album:\t" + Variables.albumName);
-				titlelbl.setText("Title: \t" + Variables.titleName);;
-				lengthlbl.setText((Variables.duration.toString()));
 			}
 		});
 	}
