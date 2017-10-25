@@ -27,4 +27,5 @@ public class Variables {
 	static MediaPlayer player;
 	static boolean playing = false;
 	final static DecimalFormat formatter = new DecimalFormat("");
+	static File currentPlaying;
 }

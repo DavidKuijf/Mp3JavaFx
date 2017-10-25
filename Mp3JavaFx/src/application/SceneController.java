@@ -35,21 +35,15 @@ public class SceneController implements Initializable {
 	@FXML Label timeSliderlbl;
 
 	@FXML ImageView imageview;
-	@FXML Button playBtn;
-	@FXML Button pauseBtn;
+	@FXML Button playpauseBtn;
+	@FXML Button stopBtn;
 	@FXML Button skipBtn;
 	@FXML Button rewindBtn;
 	
 	@FXML void playpause() {Methods.playingAnMp3(Variables.selectedmp3);}
-	@FXML void play() {Methods.playingAnMp3(Variables.selectedmp3);}
-	@FXML void pause() {Variables.player.pause();}
+	@FXML void stop() {Variables.player.stop(); Variables.playing = false;}
 	@FXML void rewind() {}
 	@FXML void skip() {}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -90,9 +84,7 @@ public class SceneController implements Initializable {
 				String localstring = Variables.libraryFolderPassable.toString() + "\\" + newValue;
 				Variables.selectedmp3 = new File(localstring);
 				if (Variables.albumImage != null) {
-				imageview.setImage(Variables.albumImage);
-				
-	
+					imageview.setImage(Variables.albumImage);
 				}
 			}
 		});
