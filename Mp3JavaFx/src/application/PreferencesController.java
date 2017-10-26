@@ -38,11 +38,13 @@ public class PreferencesController implements Initializable {
 	void apply() {
 		Variables.libraryFolderPassable = new File(libraryDirTxtfx.getText().replace("\\", "/"));	//set the textfield to a passable File
 		Methods.getMp3list(Variables.libraryFolderPassable);
+		Methods.writeToTxtFile(libraryDirTxtfx.getText().replace("\\", "/"));
 	}
 	
 	
 	 @Override
 	    public void initialize(URL url, ResourceBundle rb) {
+		 
 		 	Applybtn.setDisable(true);
 	    }  
 	

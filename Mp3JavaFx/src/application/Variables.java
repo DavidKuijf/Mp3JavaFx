@@ -11,6 +11,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class Variables {
+	
+	
+	
 	static File libraryFolderPassable = new File((System.getProperty("user.home") + System.getProperty("file.separator") + "music"));
 	static TextField libraryDirTxt = new TextField();							//init a Textfield
 	static File[] fileList;
@@ -28,4 +31,6 @@ public class Variables {
 	static boolean playing = false;
 	final static DecimalFormat formatter = new DecimalFormat("");
 	static File currentPlaying;
+	static File controlFile;
+
 }

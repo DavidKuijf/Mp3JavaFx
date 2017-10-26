@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,10 +18,12 @@ import javafx.stage.DirectoryChooser;
 public class Methods {
 
 		
-	static void playingAnMp3(File mp3File) {					//Make the actual player instance	
+	static void playingAnMp3(File mp3File) {
+		
 		if (!Variables.playing) {
 		Variables.player.play();	//Start playing
 		Variables.playing = true;
+		Variables.controlFile = mp3File;
 		return;
 		}
 		if (Variables.playing) {
@@ -28,7 +31,15 @@ public class Methods {
 			Variables.playing = false;
 			return;
 		}
+		
 	}
+	
+	static String readFile(String path) 
+			  throws IOException 
+			{
+			  byte[] encoded = Files.readAllBytes(Paths.get(path));
+			  return new String(encoded, Charset.defaultCharset());
+			}
 	
 	static void getMp3list(File libraryFolder) {
 		Variables.fileList = libraryFolder.listFiles();
@@ -41,7 +52,7 @@ public class Methods {
 		}
 	}
 	
-	static void makeTheLibDirTxt() {									//This was basically ripped word for word from https://docs.oracle.com/javase/tutorial/essential/io/file.html
+	static void makeTheLibDirTxt() throws IOException {									//This was basically ripped word for word from https://docs.oracle.com/javase/tutorial/essential/io/file.html
 		Path file = Paths.get("lib-dir.txt");
 		try {
 		    // Create the empty file with default permissions, etc.
@@ -49,11 +60,12 @@ public class Methods {
 		} catch (FileAlreadyExistsException x) {
 		    System.err.format("file named %s" +
 		        " already exists%n", file);
+		    Variables.libraryFolderPassable = new File(readFile("lib-dir.txt"));
 		} catch (IOException x) {
 		    // Some other sort of failure, such as permissions.
 		    System.err.format("createFile error: %s%n", x);
 		}
-		Methods.writeToTxtFile(Variables.libraryFolderPassable.toString());
+		//Methods.writeToTxtFile(Variables.libraryFolderPassable.toString());
 	}
 	
 	static void writeToTxtFile(String txt ) {

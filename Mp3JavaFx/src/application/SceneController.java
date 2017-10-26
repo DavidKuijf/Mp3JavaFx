@@ -42,7 +42,7 @@ public class SceneController implements Initializable {
 	
 	@FXML void playpause() {Methods.playingAnMp3(Variables.selectedmp3);}
 	@FXML void stop() {Variables.player.stop(); Variables.playing = false;}
-	@FXML void rewind() {}
+	@FXML void rewind() {Variables.player.stop();Variables.player.play();}
 	@FXML void skip() {}
 	
 	
