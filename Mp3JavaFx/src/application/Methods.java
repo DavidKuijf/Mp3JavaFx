@@ -65,7 +65,7 @@ public class Methods {
 		    // Some other sort of failure, such as permissions.
 		    System.err.format("createFile error: %s%n", x);
 		}
-		//Methods.writeToTxtFile(Variables.libraryFolderPassable.toString());
+		Methods.writeToTxtFile(Variables.libraryFolderPassable.toString());
 	}
 	
 	static void writeToTxtFile(String txt ) {
