@@ -114,6 +114,8 @@ public class Methods {
 					System.out.println(Variables.yearName);
 				}
 				Variables.albumImage = (Image) Variables.player.getMedia().getMetadata().get("image");
-			   	});
+			   	}
+	);
+		
 	}
 }

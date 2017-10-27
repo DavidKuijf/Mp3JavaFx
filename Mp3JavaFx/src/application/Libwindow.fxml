@@ -33,25 +33,25 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="758.0">
                            <children>
                               <ImageView fx:id="imageview" fitHeight="389.0" fitWidth="731.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="titlelbl" ellipsisString="" layoutX="46.0" layoutY="424.0" text="Title:" />
-                              <Label fx:id="artistlbl" layoutX="46.0" layoutY="441.0" text="Artist:" />
-                              <Label fx:id="albumlbl" layoutX="46.0" layoutY="458.0" text="Album:" />
-                              <Label fx:id="lengthlbl" layoutX="46.0" layoutY="475.0" text="Length:" />
+                              <Label fx:id="titlelbl" ellipsisString="" layoutX="77.0" layoutY="424.0" text="Title:" />
+                              <Label fx:id="artistlbl" layoutX="75.0" layoutY="450.0" text="Artist:" />
+                              <Label fx:id="albumlbl" layoutX="71.0" layoutY="475.0" text="Album:" />
+                              <Label fx:id="lengthlbl" layoutX="70.0" layoutY="496.0" text="Length:" />
+                              <TextField fx:id="titleField" layoutX="116.0" layoutY="420.0" />
+                              <TextField fx:id="artistField" layoutX="116.0" layoutY="446.0" />
+                              <TextField fx:id="albumField" layoutX="116.0" layoutY="471.0" />
+                              <TextField fx:id="lenghthField" layoutX="116.0" layoutY="492.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="758.0">
                            <children>
                               <Button fx:id="playpauseBtn" layoutX="34.0" layoutY="31.0" mnemonicParsing="false" onAction="#playpause" prefHeight="100.0" prefWidth="100.0" text="II&gt;" />
-                              <Slider layoutX="668.0" layoutY="88.0" orientation="VERTICAL" />
-                              <Slider layoutX="482.0" layoutY="23.0" orientation="VERTICAL" prefHeight="117.0" prefWidth="14.0" />
-                              <Slider layoutX="34.0" layoutY="151.0" prefHeight="14.0" prefWidth="578.0" />
                               <Button fx:id="skipBtn" layoutX="134.0" layoutY="31.0" mnemonicParsing="false" onAction="#skip" prefHeight="100.0" prefWidth="100.0" text="&gt;&gt;" />
                               <Button fx:id="rewindBtn" layoutX="234.0" layoutY="31.0" mnemonicParsing="false" onAction="#rewind" prefHeight="100.0" prefWidth="100.0" text="&lt;&lt;" />
                               <Button fx:id="stopBtn" layoutX="134.0" layoutY="31.0" mnemonicParsing="false" onAction="#stop" prefHeight="100.0" prefWidth="100.0" text="[ ]" />
                               <Button fx:id="skipBtn" layoutX="234.0" layoutY="31.0" mnemonicParsing="false" onAction="#skip" prefHeight="100.0" prefWidth="100.0" text="&gt;&gt;" />
                               <Button fx:id="rewindBtn" layoutX="334.0" layoutY="31.0" mnemonicParsing="false" onAction="#rewind" prefHeight="100.0" prefWidth="100.0" text="&lt;&lt;" />
                               <Label fx:id="timeSliderlbl" layoutX="635.0" layoutY="150.0" />
-                              <Label fx:id="contentDurationlbl" layoutX="612.0" layoutY="150.0" text="00.0" />
                            </children>
                         </AnchorPane>
                     </items>

@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -39,6 +40,11 @@ public class SceneController implements Initializable {
 	@FXML Button stopBtn;
 	@FXML Button skipBtn;
 	@FXML Button rewindBtn;
+	
+	@FXML TextField titleField;
+	@FXML TextField artistField;
+	@FXML TextField albumField;
+	@FXML TextField lenghtField;
 	
 	@FXML void playpause() {Methods.playingAnMp3(Variables.selectedmp3);}
 	@FXML void stop() {Variables.player.stop(); Variables.playing = false;}
@@ -65,27 +71,30 @@ public class SceneController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) { // On stage init.
 		mp3List.setItems(items); // Sets the observable list of the list view.
 		// Add temporary components to observable list so they get drawn on the list view.
+		
 		mp3List.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+			
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				System.out.println(newValue);
+				
+				
 				for (File f : Variables.fileList) {
 					if (f.getName().equals(newValue)) {
+						System.out.println(newValue);
 						Methods.getMetadata(f);
-						//set all metadata on screen
-						artistlbl.setText("Artist: \t" + Variables.artistName);
-						albumlbl.setText("Album:\t" + Variables.albumName);
-						titlelbl.setText("Title: \t" + Variables.titleName);
-						timeSliderlbl.setText(" / " + String.valueOf(Variables.formatter.format(Math.floor(Variables.duration.toSeconds()))));
+						
+						
 					}
-					
+			
 				}
-				System.out.println("Selected item: " + newValue);
+				System.out.println("Selected item: " + newValue);	//show newVvalue
+				titleField.setText(Variables.titleName);     	//set metadata on screen
+				artistField.setText(Variables.artistName);		//set metadata on screen
+				albumField.setText(Variables.albumName);		//set metadata on screen 
 				String localstring = Variables.libraryFolderPassable.toString() + "\\" + newValue;
 				Variables.selectedmp3 = new File(localstring);
-				if (Variables.albumImage != null) {
-					imageview.setImage(Variables.albumImage);
-				}
+				imageview.setImage(Variables.albumImage);		//set metadat on screen
+				
 			}
 		});
 	}
