@@ -20,10 +20,11 @@ public class Methods {
 		
 	static void playingAnMp3(File mp3File) {
 		
+		// This logic compartment checks if the player is currently playing or not and acts accordingly.
 		if (!Variables.playing) {
-		Variables.player.play();	//Start playing
-		Variables.playing = true;
-		Variables.controlFile = mp3File;
+			Variables.player.play();	//Start playing
+			Variables.playing = true;
+			Variables.controlFile = mp3File;
 		return;
 		}
 		if (Variables.playing) {
@@ -35,19 +36,18 @@ public class Methods {
 	}
 	
 	static String readFile(String path) 
-			  throws IOException 
-			{
-			  byte[] encoded = Files.readAllBytes(Paths.get(path));
-			  return new String(encoded, Charset.defaultCharset());
-			}
+		throws IOException {
+			byte[] encoded = Files.readAllBytes(Paths.get(path)); // Reads the bytes of the specific file
+			return new String(encoded, Charset.defaultCharset()); // Turns the bytes into a string of chars
+		}
 	
 	static void getMp3list(File libraryFolder) {
-		Variables.fileList = libraryFolder.listFiles();
-		SceneController.items.clear();
-		for (File x:Variables.fileList){
+		Variables.fileList = libraryFolder.listFiles();	// Gets a list of files in the library folder and stores it.
+		SceneController.items.clear();	// Clears the current list.
+		for (File x:Variables.fileList){	// Checks for every file if it is an mp3
 			if(x.getName().endsWith(".mp3")) {
-				System.out.println(x.getPath()+"\\" + x.getName());
-				SceneController.items.add(x.getName());
+				System.out.println(x.getPath()+"\\" + x.getName()); // Prints out the files it found.
+				SceneController.items.add(x.getName()); // Adds the found files to the list.
 			}
 		}
 	}
@@ -68,16 +68,15 @@ public class Methods {
 		Methods.writeToTxtFile(Variables.libraryFolderPassable.toString());
 	}
 	
-	static void writeToTxtFile(String txt ) {
-		FileWriter fWriter;
+	static void writeToTxtFile(String txt) {
+		FileWriter fWriter; 
 		try {
-			fWriter = new FileWriter("lib-dir.txt");
-			BufferedWriter bWriter = new BufferedWriter(fWriter);
-			bWriter.write(txt);
-			bWriter.close();
+			fWriter = new FileWriter("lib-dir.txt"); // Create a new FileWriter object that will write to 'lib-dir.txt'
+			BufferedWriter bWriter = new BufferedWriter(fWriter); // Create a new BufferedWriter object to write data to the FileWriter
+			bWriter.write(txt); // Write the given String to the BufferedWriter
+			bWriter.close(); // Close the BufferedWriter object to preserve memory
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); // Catch and print I/O error
 		}
 	}
 	static String getLibraryDirectory() {
@@ -92,30 +91,28 @@ public class Methods {
 	}
 	
 	static void getMetadata(File selectedMp3) {
-		String mp3Path = selectedMp3.getAbsolutePath();
-		mp3Path = mp3Path.replace("\\", "/");
-		Media mp3 = new Media(new File(mp3Path).toURI().toString());
-		Variables.player = new MediaPlayer(mp3);
-		System.out.println(Variables.player.getMedia().getMetadata().get("title"));
-		Variables.player.setOnReady(() -> {
-
-				Variables.artistName = (String) Variables.player.getMedia().getMetadata().get("artist");
-				System.out.println("Artist: " + Variables.artistName);
-				Variables.titleName = (String) Variables.player.getMedia().getMetadata().get("title");
-				System.out.println("Title: " + Variables.titleName);
-				Variables.albumName = (String) Variables.player.getMedia().getMetadata().get("album");
-				System.out.println("Album: " + Variables.albumName);
-				Variables.composerName = (String) Variables.player.getMedia().getMetadata().get("composer");
-				System.out.println("Composer: " + Variables.composerName);
-				Variables.duration = Variables.player.getMedia().getDuration();
-				System.out.println(Variables.duration);
-				if (Variables.player.getMedia().getMetadata().get("year") != null){
-					Variables.yearName = (int) Variables.player.getMedia().getMetadata().get("year");
-					System.out.println(Variables.yearName);
-				}
-				Variables.albumImage = (Image) Variables.player.getMedia().getMetadata().get("image");
-			   	}
-	);
-		
+		String mp3Path = selectedMp3.getAbsolutePath(); // Stores the absolute path of the given mp3
+		mp3Path = mp3Path.replace("\\", "/"); // Replaces '//' to '\' so we can use it
+		Media mp3 = new Media(new File(mp3Path).toURI().toString()); // Stores the mp3 file as a Media object
+		Variables.player = new MediaPlayer(mp3); // Creates new MediaPlayer object and loads the Media object into the MediaPlayer
+		System.out.println(Variables.player.getMedia().getMetadata().get("title")); // Prints out the mp3 title (for debugging purposes)
+		Variables.player.setOnReady(() -> { // Get's the mp3 ready to play so we can read the metadata (and also for when the user presses play)
+				
+			// Reads all the metadata, stores it and prints it out.
+			Variables.artistName = (String) Variables.player.getMedia().getMetadata().get("artist");
+			System.out.println("Artist: " + Variables.artistName);
+			Variables.titleName = (String) Variables.player.getMedia().getMetadata().get("title");
+			System.out.println("Title: " + Variables.titleName);
+			Variables.albumName = (String) Variables.player.getMedia().getMetadata().get("album");
+			System.out.println("Album: " + Variables.albumName);
+			Variables.composerName = (String) Variables.player.getMedia().getMetadata().get("composer");
+			System.out.println("Composer: " + Variables.composerName);
+			Variables.duration = Variables.player.getMedia().getDuration();
+			System.out.println(Variables.duration);
+			Variables.yearName = (int) Variables.player.getMedia().getMetadata().get("year");
+			System.out.println(Variables.yearName);
+			Variables.albumImage = (Image) Variables.player.getMedia().getMetadata().get("image");
+			}
+		);
 	}
 }

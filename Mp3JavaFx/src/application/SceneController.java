@@ -33,18 +33,12 @@ public class SceneController implements Initializable {
 	@FXML Label albumlbl;
 	@FXML Label titlelbl;
 	@FXML Label lengthlbl;
-	@FXML Label timeSliderlbl;
 
 	@FXML ImageView imageview;
 	@FXML Button playpauseBtn;
 	@FXML Button stopBtn;
 	@FXML Button skipBtn;
 	@FXML Button rewindBtn;
-	
-	@FXML TextField titleField;
-	@FXML TextField artistField;
-	@FXML TextField albumField;
-	@FXML TextField lenghtField;
 	
 	@FXML void playpause() {Methods.playingAnMp3(Variables.selectedmp3);}
 	@FXML void stop() {Variables.player.stop(); Variables.playing = false;}
@@ -59,8 +53,8 @@ public class SceneController implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("Preferencesframe.fxml"));
 			prefstage.setScene(new Scene(root, 570, 278));
 			prefstage.showAndWait();
-			mp3List.setVisible(false); //temp refresh patch ASAP
-			mp3List.setVisible(true);  //temp refresh patch ASAP
+			mp3List.setVisible(false);
+			mp3List.setVisible(true);
 		} catch(Exception e) {///
 			e.printStackTrace();
 		}
@@ -77,23 +71,21 @@ public class SceneController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				
-				
 				for (File f : Variables.fileList) {
 					if (f.getName().equals(newValue)) {
 						System.out.println(newValue);
 						Methods.getMetadata(f);
-						
-						
 					}
 			
 				}
+				
 				System.out.println("Selected item: " + newValue);	//show newVvalue
-				titleField.setText(Variables.titleName);     	//set metadata on screen
-				artistField.setText(Variables.artistName);		//set metadata on screen
-				albumField.setText(Variables.albumName);		//set metadata on screen 
+				titlelbl.setText("Title: " + Variables.titleName);     	//set metadata on screen
+				artistlbl.setText("Artist: " + Variables.artistName);		//set metadata on screen
+				albumlbl.setText("Album: " + Variables.albumName);		//set metadata on screen 
 				String localstring = Variables.libraryFolderPassable.toString() + "\\" + newValue;
 				Variables.selectedmp3 = new File(localstring);
-				imageview.setImage(Variables.albumImage);		//set metadat on screen
+				imageview.setImage(Variables.albumImage);		//set metadata on screen
 				
 			}
 		});
